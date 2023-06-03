@@ -2,29 +2,30 @@ Hello!
 I have completed your test
 
 All users are able to:
-● signup
-● see image feed (image, image description, portfolio name that
-contains this image) ordered by creation time
-Registered user should be able to:
-● login, logout
-● create portfolios
-● have several portfolios
-● upload image in his portfolios
-● delete own profile
-● delete own portfolios
-● delete own images
-Portfolio:
-● Should contain name, description, images
-Image:
-● Should contain name, description, comments
-Key requirements:
-● Should be implemented Error Handler with next statuses 400,
-401, 403 and 404
-● Should be implemented request validation
-● Project should contains db migration files
-Use the following technologies:
-● PostgreSQL use Sequelize;
-● Nest.js
 
-Made by Andrii Liasota
-The project was completed in two days
+● signup<br>
+● see image feed (image, image description, portfolio name that<br>
+contains this image) ordered by creation time<br>
+Registered user should be able to:<br>
+● login, logout<br>
+● create portfolios<br>
+● have several portfolios<br>
+● upload image in his portfolios<br>
+● delete own profile<br>
+● delete own portfolios<br>
+● delete own images<br>
+Portfolio:<br>
+● Should contain name, description, images<br>
+Image:<br>
+● Should contain name, description, comments<br>
+Key requirements:<br>
+● Should be implemented Error Handler with next statuses 400,<br>
+401, 403 and 404<br>
+● Should be implemented request validation<br>
+● Project should contains db migration files<br>
+Use the following technologies:<br>
+● PostgreSQL use Sequelize;<br>
+● Nest.js<br>
+
+Made by Andrii Liasota.<br>
+The project was completed in two days<br>
