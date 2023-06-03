@@ -5,9 +5,11 @@ import { Comment } from './comment.model';
 
 @Injectable()
 export class CommentService {
-    constructor(@InjectModel(Comment) private commentRepository: typeof Comment) {}
+  constructor(
+    @InjectModel(Comment) private commentRepository: typeof Comment,
+  ) {}
 
-    async create(dto: CreateCommentDto) {
-        return await this.commentRepository.create({ ...dto })
-    }
+  async create(dto: CreateCommentDto) {
+    return await this.commentRepository.create({ ...dto });
+  }
 }

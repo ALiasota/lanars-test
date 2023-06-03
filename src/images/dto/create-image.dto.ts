@@ -10,7 +10,4 @@ export class CreateImageDto {
 
     @IsNumberString({}, { message: 'Must be a number' })
     readonly portfolioId: number;
-
-    // @IsNumber({ allowNaN: false }, { message: 'Must be a number' })
-    // readonly portfolioId: number;
 }
