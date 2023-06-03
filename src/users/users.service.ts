@@ -23,4 +23,13 @@ export class UsersService {
         return user;
     }
 
+    async getUserById(id: number) {
+        const user = await this.userRepository.findOne({ where: { id }, include: { all: true } });
+        return user;
+    }
+
+    async deleteUser(id: number) {
+        const user = await this.userRepository.destroy({ where: { id } });
+        return user;
+    }
 }

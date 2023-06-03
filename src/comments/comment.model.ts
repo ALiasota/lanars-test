@@ -1,5 +1,6 @@
-import { BelongsTo, Column, DataType, HasMany, Model, Table, ForeignKey } from "sequelize-typescript";
+import { BelongsTo, Column, DataType, Model, Table, ForeignKey } from "sequelize-typescript";
 import { Image } from "src/images/image.model";
+import { User } from "src/users/users.model";
 
 interface CommentCreationAttrs {
     text: string;
@@ -19,4 +20,11 @@ export class Comment extends Model<Comment, CommentCreationAttrs> {
 
     @BelongsTo(() => Image)
     image: Image
+
+    @ForeignKey(() => User)
+    @Column({type: DataType.INTEGER})
+    userId: number
+
+    @BelongsTo(() => User)
+    user: User
 }

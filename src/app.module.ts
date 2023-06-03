@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { User } from "./users/users.model";
@@ -13,6 +13,7 @@ import { Comment } from "./comments/comment.model";
 import { ImagesModule } from "./images/images.module";
 import { CommentsModule } from "./comments/comments.module";
 import * as path from "path";
+import { AuthMiddleware } from "./auth/auth.middleware";
 
 
 @Module({
@@ -43,4 +44,14 @@ import * as path from "path";
         FilesModule
     ]
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+    .apply(AuthMiddleware)
+    .exclude(
+      { path: 'auth/register', method: RequestMethod.POST },
+      { path: 'auth/login', method: RequestMethod.POST },
+    )
+    .forRoutes('*');
+  }
+}

@@ -1,4 +1,4 @@
-import { IsString, IsNumberString } from "class-validator"
+import { IsString, IsNumber, IsNumberString } from "class-validator"
 
 
 export class CreateImageDto {
@@ -10,4 +10,7 @@ export class CreateImageDto {
 
     @IsNumberString({}, { message: 'Must be a number' })
     readonly portfolioId: number;
+
+    // @IsNumber({ allowNaN: false }, { message: 'Must be a number' })
+    // readonly portfolioId: number;
 }

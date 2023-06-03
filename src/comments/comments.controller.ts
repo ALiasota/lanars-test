@@ -9,7 +9,7 @@ export class CommentController {
 
     @UseGuards(JwtAuthGuard)
     @Post()
-    createPortfolio(@Body() dto: CreateCommentDto) {
-        return this.commentService.create(dto)
+    async createPortfolio(@Body() dto: CreateCommentDto) {
+        return await this.commentService.create(dto)
     }
 }

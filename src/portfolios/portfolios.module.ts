@@ -12,6 +12,9 @@ import { AuthModule } from 'src/auth/auth.module';
     imports: [
         SequelizeModule.forFeature([User, Portfolio]),
         AuthModule
-      ],
+    ],
+    exports: [
+      PortfoliosService,
+    ]
 })
 export class PortfoliosModule {}

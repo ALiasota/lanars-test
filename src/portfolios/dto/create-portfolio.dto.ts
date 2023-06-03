@@ -7,7 +7,4 @@ export class CreatePortfolioDto {
     
     @IsString({ message: 'Must be a string' })
     readonly description: string;
-
-    @IsNumberString({}, { message: 'Must be a number' })
-    readonly userId: number;
 }

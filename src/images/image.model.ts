@@ -1,12 +1,14 @@
 import { BelongsTo, Column, DataType, HasMany, Model, Table, ForeignKey } from "sequelize-typescript";
 import { Portfolio } from "src/portfolios/portfolio.model";
 import { Comment } from "src/comments/comment.model";
+import { User } from "src/users/users.model";
 
 interface ImageCreationAttrs {
     name: string;
     description: string
-    comments: string[]
-    portfolioId: number 
+    portfolioId: number
+    userId: number
+    route: string 
 }
 
 @Table({tableName: 'images'})
@@ -20,6 +22,9 @@ export class Image extends Model<Image, ImageCreationAttrs> {
     @Column({type: DataType.STRING, allowNull: false})
     description: string;
 
+    @Column({type: DataType.STRING, allowNull: false})
+    route: string;
+
     @ForeignKey(() => Portfolio)
     @Column({type: DataType.INTEGER})
     portfolioId: number
@@ -29,4 +34,11 @@ export class Image extends Model<Image, ImageCreationAttrs> {
 
     @HasMany(() => Comment)
     comments: Comment[]
+
+    @ForeignKey(() => User)
+    @Column({type: DataType.INTEGER})
+    userId: number
+
+    @BelongsTo(() => User)
+    author: User
 }

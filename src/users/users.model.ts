@@ -1,5 +1,6 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { BelongsToMany, Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
+import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
+import { Comment } from "src/comments/comment.model";
+import { Image } from "src/images/image.model";
 import { Portfolio } from "src/portfolios/portfolio.model";
 
 interface UserCreationAttrs {
@@ -20,4 +21,10 @@ export class User extends Model<User, UserCreationAttrs> {
 
     @HasMany(() => Portfolio)
     portfolios: Portfolio[]
+
+    @HasMany(() => Image)
+    images: Image[]
+
+    @HasMany(() => Comment)
+    comments: Comment[]
 }

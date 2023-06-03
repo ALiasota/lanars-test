@@ -5,7 +5,7 @@ import { Image } from "src/images/image.model";
 interface PortfolioCreationAttrs {
     name: string;
     description: string
-    images: string[]
+    userId: number
 }
 
 @Table({tableName: 'portfolios'})
