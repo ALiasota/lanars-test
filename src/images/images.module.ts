@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import {SequelizeModule} from "@nestjs/sequelize";
+import { SequelizeModule } from '@nestjs/sequelize';
 import { ImagesController } from './images.controller';
 import { ImagesService } from './images.service';
 import { Image } from './image.model';
@@ -11,13 +11,14 @@ import { User } from 'src/users/users.model';
 import { PortfoliosModule } from 'src/portfolios/portfolios.module';
 
 @Module({
-    providers: [ImagesService],
-    controllers: [ImagesController],
-    imports: [
-        SequelizeModule.forFeature([Portfolio, Image, Comment, User]),
-        FilesModule,
-        AuthModule,
-        PortfoliosModule,
-      ],
+  providers: [ImagesService],
+  controllers: [ImagesController],
+  imports: [
+    SequelizeModule.forFeature([Portfolio, Image, Comment, User]),
+    FilesModule,
+    AuthModule,
+    PortfoliosModule,
+  ],
+  exports: [ImagesService],
 })
 export class ImagesModule {}
