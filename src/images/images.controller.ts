@@ -25,11 +25,18 @@ export class ImagesController {
   @UseGuards(JwtAuthGuard)
   @Post()
   @UseInterceptors(FileInterceptor('file'))
-  async createPortfolio(
+  async createImage(
     @Req() req: Request,
     @Body() dto: CreateImageDto,
     @UploadedFile() file,
   ) {
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
+      throw new HttpException(
+        'Uploaded file is not image',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
     const user = req['context'].user;
     if (!user)
       throw new HttpException('User not found', HttpStatus.BAD_REQUEST);
